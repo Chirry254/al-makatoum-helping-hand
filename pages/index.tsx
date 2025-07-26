@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
 export default function Home() {
   const [amount, setAmount] = useState(10);
@@ -13,43 +12,42 @@ export default function Home() {
           <p className="text-center text-lg">Support our mission with your generous donation.</p>
         </div>
 
-        <Card className="mb-6">
-          <CardContent className="p-6">
-            <h2 className="text-xl font-semibold mb-4">Donate via Bitcoin</h2>
-            <p className="mb-2 break-all">Wallet Address:</p>
-            <div className="bg-gray-100 p-4 rounded mb-2 text-sm break-all">
-              bc1qjrhku4yrvnrys7jq6532ar5a6m96k2mg8gwxx2
-            </div>
-            <img
-              src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=bitcoin:bc1qjrhku4yrvnrys7jq6532ar5a6m96k2mg8gwxx2"
-              alt="QR Code"
-              className="mx-auto my-4"
-            />
-          </CardContent>
-        </Card>
+        <div className="mb-6 border rounded-xl shadow-sm p-6">
+          <h2 className="text-xl font-semibold mb-4">Donate via Bitcoin</h2>
+          <p className="mb-2 break-all">Wallet Address:</p>
+          <div className="bg-gray-100 p-4 rounded mb-2 text-sm break-all">
+            bc1qjrhku4yrvnrys7jq6532ar5a6m96k2mg8gwxx2
+          </div>
+          <img
+            src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=bitcoin:bc1qjrhku4yrvnrys7jq6532ar5a6m96k2mg8gwxx2"
+            alt="QR Code"
+            className="mx-auto my-4"
+          />
+        </div>
 
-        <Card>
-          <CardContent className="p-6">
-            <h2 className="text-xl font-semibold mb-4">Donate via Card</h2>
-            <form action="/api/checkout" method="POST">
-              <label htmlFor="amount" className="block mb-2 font-medium">
-                Donation Amount (USD)
-              </label>
-              <Input
-                type="number"
-                id="amount"
-                name="amount"
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
-                className="mb-4"
-                min="1"
-              />
-              <Button type="submit" className="w-full bg-green-600 hover:bg-green-700">
-                Donate with Card (Stripe)
-              </Button>
-            </form>
-          </CardContent>
-        </Card>
+        <div className="border rounded-xl shadow-sm p-6">
+          <h2 className="text-xl font-semibold mb-4">Donate via Card</h2>
+          <form action="/api/checkout" method="POST">
+            <label htmlFor="amount" className="block mb-2 font-medium">
+              Donation Amount (USD)
+            </label>
+            <input
+              type="number"
+              id="amount"
+              name="amount"
+              value={amount}
+              onChange={(e) => setAmount(Number(e.target.value))}
+              className="mb-4 w-full p-2 border border-gray-300 rounded"
+              min="1"
+            />
+            <button
+              type="submit"
+              className="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded"
+            >
+              Donate with Card
+            </button>
+          </form>
+        </div>
       </div>
     </main>
   );
