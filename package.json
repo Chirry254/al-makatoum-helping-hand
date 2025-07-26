@@ -12,7 +12,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "typescript": "^5.4.2",
-    "@types/react": "^18.2.37"
+    "@types/react": "^18.3.23",
+    "typescript": "^5.8.3"
   }
-}git rebase --continue
+}
